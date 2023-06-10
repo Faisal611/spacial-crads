@@ -282,9 +282,9 @@ class Card_Widget extends \Elementor\Widget_Base {
 				    'col-sm-6'  => esc_html__( '2', 'spacial-material-cards' ),
 				    'col-md-4' => esc_html__( '3', 'spacial-material-cards' )
 			    ],
-			    'selectors' => [
-				    '{{WRAPPER}} .material-card .columns_class' => 'column-align: {{VALUE}};',
-			    ],
+/*			    'selectors' => [
+				    '{{WRAPPER}} .material-card .columns_class' => 'column-style: {{VALUE}};',
+			    ],*/
 		    ]
 	    );
 
@@ -295,13 +295,14 @@ class Card_Widget extends \Elementor\Widget_Base {
     protected function render() {
         $setting = $this->get_settings_for_display();
 		$card_Repeaters =  $this->get_settings('Card_Repeater');
+		$card_columns =  $this->get_settings('card_columns');
 		?>
 		    <div class="row active-with-click">
 			    <?php
 			        if ($card_Repeaters ) {
 				        foreach ($card_Repeaters as $card_Repeater){
 							?>
-					        <div class="columns_class">
+					        <div class="<?php echo $card_columns ?>"> 
 						        <article class="material-card <?php echo $card_Repeater['card_color']?>">
 							        <h2 class="card-alignment">
 								        <span class="main-title" ><?php echo $card_Repeater['card_title']?></span>
