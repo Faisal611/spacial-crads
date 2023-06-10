@@ -272,19 +272,19 @@ class Card_Widget extends \Elementor\Widget_Base {
 	    );
 
 	    $this->add_responsive_control(
-		    'card_columns',
+			    'card_columns',
 		    [
 			    'label' => esc_html__( 'Card Columns', 'spacial-material-cards' ),
-			    'type' => \Elementor\Controls_Manager::SELECT2,
-			    'default' => 'col-md-4',
+			    'type' => \Elementor\Controls_Manager::SELECT,
 			    'options' => [
-				    'col-xs-12' => esc_html__( '1', 'spacial-material-cards' ),
-				    'col-sm-6'  => esc_html__( '2', 'spacial-material-cards' ),
-				    'col-md-4' => esc_html__( '3', 'spacial-material-cards' )
+				    'col-xs-12' => '1',
+				    'col-sm-6'  => '2',
+				    'col-md-4' => '3'
 			    ],
-/*			    'selectors' => [
-				    '{{WRAPPER}} .material-card .columns_class' => 'column-style: {{VALUE}};',
-			    ],*/
+//			    'prefix_class' => 'content-align-%s',
+//			    'selectors' => [
+//				    '{{WRAPPER}} .material-card .columns_class' => 'column-style: {{VALUE}};',
+//			    ],
 		    ]
 	    );
 
@@ -302,7 +302,7 @@ class Card_Widget extends \Elementor\Widget_Base {
 			        if ($card_Repeaters ) {
 				        foreach ($card_Repeaters as $card_Repeater){
 							?>
-					        <div class="<?php echo $card_columns ?>"> 
+					        <div class="<?php echo $card_columns ?> columns_class">
 						        <article class="material-card <?php echo $card_Repeater['card_color']?>">
 							        <h2 class="card-alignment">
 								        <span class="main-title" ><?php echo $card_Repeater['card_title']?></span>
@@ -324,10 +324,10 @@ class Card_Widget extends \Elementor\Widget_Base {
 								        <h4>
 									        Social
 								        </h4>
-								        <a class="cmp_social_icon text-center"><i class="fab fa-facebook"></i></a>
-								        <a class="cmp_social_icon text-center"><i class="fab fa-twitter"></i></a>
-								        <a class="cmp_social_icon text-center"><i class="fab fa-linkedin"></i></a>
-								        <a class="cmp_social_icon text-center"><i class="fab fa-google-plus"></i></a>
+								        <a class="cmp_social_icon text-center"><i class="fa fa-facebook"></i></a>
+								        <a class="cmp_social_icon text-center"><i class="fa fa-twitter"></i></a>
+								        <a class="cmp_social_icon text-center"><i class="fa fa-linkedin"></i></a>
+								        <a class="cmp_social_icon text-center"><i class="fa fa-google-plus"></i></a>
 							        </div>
 						        </article>
 					        </div>
