@@ -271,20 +271,19 @@ class Card_Widget extends \Elementor\Widget_Base {
 		    ]
 	    );
 
-	    $this->add_control(
-		    'border_style',
+	    $this->add_responsive_control(
+		    'card_columns',
 		    [
-			    'label' => esc_html__( 'Border Style', 'spacial-material-cards' ),
-			    'type' => \Elementor\Controls_Manager::SELECT,
-			    'default' => 'solid',
+			    'label' => esc_html__( 'Card Columns', 'spacial-material-cards' ),
+			    'type' => \Elementor\Controls_Manager::SELECT2,
+			    'default' => 'col-md-4',
 			    'options' => [
-				    '' => esc_html__( 'Default', 'spacial-material-cards' ),
-				    '1' => esc_html__( 'None', 'spacial-material-cards' ),
-				    '2'  => esc_html__( 'Solid', 'spacial-material-cards' ),
-				    '3' => esc_html__( 'Dashed', 'spacial-material-cards' )
+				    'col-xs-12' => esc_html__( '1', 'spacial-material-cards' ),
+				    'col-sm-6'  => esc_html__( '2', 'spacial-material-cards' ),
+				    'col-md-4' => esc_html__( '3', 'spacial-material-cards' )
 			    ],
 			    'selectors' => [
-				    '{{WRAPPER}} .your-class' => 'border-style: {{VALUE}};',
+				    '{{WRAPPER}} .material-card .columns_class' => 'column-align: {{VALUE}};',
 			    ],
 		    ]
 	    );
@@ -302,7 +301,7 @@ class Card_Widget extends \Elementor\Widget_Base {
 			        if ($card_Repeaters ) {
 				        foreach ($card_Repeaters as $card_Repeater){
 							?>
-					        <div class="col-md-4 col-sm-6 col-xs-12">
+					        <div class="columns_class">
 						        <article class="material-card <?php echo $card_Repeater['card_color']?>">
 							        <h2 class="card-alignment">
 								        <span class="main-title" ><?php echo $card_Repeater['card_title']?></span>
